@@ -95,7 +95,3 @@ function copyVisibility(text) {
     var copyButton = document.getElementById("copy-output");
     copyButton.style.visibility = text;
 }
-
-window.onload = function() {
-    copyVisibility('hidden');
-   }
