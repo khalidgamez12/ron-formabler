@@ -1,31 +1,8 @@
-/* FORMAT (22.05.2021)
-
-{
-FormableName = "NAMEOFFORMABLE",
-CountriesCanForm = {"CountryA", "CountryB"},
-RequiredCountries = {"CountryA", "CountryB", "CountryC"},
-ExclusiveFormables = {"FormableA"},
-FormableButton = {
-ButtonName = "Restore X’s Empire!",
-ButtonDescription = "The X Empire was bah bah bah!",
-},
-
-CustomAlert = { --CustomAlert is used to change the popup that shows up for others when a formable is formed
-Title = "The Return of the Soviet Union",
-Desc = "Against all odds, Russia has managed to retake its former countries and has declared a new successor state to the once mighty Soviet Union, determined to become a new global superpower once more!",
-Button = "The red terror returns",
-},
-},
-
-*/
-
 String.prototype.format = function() {
     a = this;
-    for (k in arguments) {
-      a = a.replace("{" + k + "}", arguments[k])
-    }
-    return a
-  }
+    for (k in arguments) { a = a.replace("{" + k + "}", arguments[k]) }
+    return a;
+}
 
 function isEmpty(value) {
     if (value.value.length == 0) return true;
@@ -71,7 +48,6 @@ function updateFormable() {
         output.innerHTML = "Fill out required labels to proceed (marked by asterisks). Italic labels are optional.";
         copyVisibility('hidden');
     }
-
 }
 
 function formListString(input, newlist) {
@@ -81,14 +57,12 @@ function formListString(input, newlist) {
         else newlist = newlist + "\"" + nation + "\"";
     }
     return newlist;
-
 }
 
 function copyOutput() {
     var output = document.getElementById("output-text");
     if (output.innerHTML.length < 87) return;
     navigator.clipboard.writeText(output.innerText);
-    
 }
 
 function copyVisibility(text) {
