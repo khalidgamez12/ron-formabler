@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
@@ -22,25 +24,25 @@
 
                     <div id="input-content-1">
                         <center>
-                            <div class="input-label"><div class="input-name">Formable name:*</div><input type="text" id="name" class="input" oninput="updateFormable()"></div>
-                            <div class="input-label"><div class="input-name">Can be formed by:*</div><input type="text" id="canform" class="input" oninput="updateFormable()"></div>
-                            <div class="input-label"><div class="input-name">Required nations:*</div><input type="text" id="required" class="input" oninput="updateFormable()"></div>
-                            <div class="input-label"><div class="input-name">Exclusive formables:</div><input type="text" id="exclusive" class="input" oninput="updateFormable()"></div>
-                            <div class="input-label"><div class="input-name">Button text:*</div><input type="text" id="button-name" class="input" oninput="updateFormable()"></div>
+                            <div class="input-label"><div class="input-name">Formable name:*</div><input type="text" placeholder="Kingdom of Qatar" id="name" oninput="updateFormable()" class="input"></div>
+                            <div class="input-label"><div class="input-name">Can be formed by:*</div><input type="text" placeholder="Qatar" id="canform" oninput="updateFormable()" class="input"></div>
+                            <div class="input-label"><div class="input-name">Required nations:*</div><input type="text" placeholder="Qatar,Bahrain,Oman" oninput="updateFormable()" id="required" class="input"></div>
+                            <div class="input-label"><div class="input-name">Exclusive formables:</div><input type="text" placeholder="Arabia,Bani Utbah" oninput="updateFormable()" id="exclusive" class="input"></div>
+                            <div class="input-label"><div class="input-name">Button text:*</div><input type="text" placeholder="Establish Arabian empire!" oninput="updateFormable()" id="button-name" class="input"></div>
                         </center>
                     </div>
                     <div id="input-content-2">
                         <center> 
-                            <div class="input-label"><div class="input-name">Button description:*</div><input type="text" id="button-desc" class="input" oninput="updateFormable()"></div>
-                            <div class="input-label"><div class="input-name"><i>Alert title:</i></div><input type="text" id="alert-title" class="input" oninput="updateFormable()"></div>
-                            <div class="input-label"><div class="input-name"><i>Alert description:</i></div><input type="text" id="alert-desc" class="input" oninput="updateFormable()"></div>
-                            <div class="input-label"><div class="input-name"><i>Alert button text:</i></div><input type="text" id="alert-button" class="input" oninput="updateFormable()"></div>
-                            <div class="input-label"><div class="input-name">Link to a flag image:*</div><input type="url" id="flag-link" class="input" oninput="updateFormable()"></div>
+                            <div class="input-label"><div class="input-name">Button description:*</div><input type="text" oninput="updateFormable()" placeholder="After thousands years of slavery on deadly deserts we finally manage to create a glorious empire." id="button-desc" class="input"></div>
+                            <div class="input-label"><div class="input-name"><i>Alert title:</i></div><input type="text" oninput="updateFormable()" placeholder="A nation in the Middle East" id="alert-title" class="input"></div>
+                            <div class="input-label"><div class="input-name"><i>Alert description:</i></div><input type="text" oninput="updateFormable()" placeholder="A new empire in the Middle East has been established!" id="alert-desc" class="input"></div>
+                            <div class="input-label"><div class="input-name"><i>Alert button text:</i></div><input type="text" oninput="updateFormable()" placeholder="A new era begins" id="alert-button" class="input"></div>
+                            <div class="input-label"><div class="input-name">Link to a flag image:*</div><input type="url" oninput="updateFormable()" placeholder="https://www.roblox.com/library/509687711" id="flag-link" class="input"></div>
                         </center>
                     </div>
                 </div>
                 <div id="output-content">
-                    <div id="copy-output" style="visibility:hidden" onclick="copyOutput()"><p style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;Copy to clipboard</p></div>
+                    <div id="copy-output" style="visibility:hidden"><p style="vertical-align: middle;">&nbsp;&nbsp;&nbsp;Copy to clipboard</p></div>
                     <div id="output-text"></div>
                 </div>
             </div>
