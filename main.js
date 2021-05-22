@@ -45,7 +45,7 @@ function updateFormable() {
 
 
     } else {
-        output.innerHTML = "Fill out required labels to proceed (marked by asterisks). Italic labels are optional.";
+        output.innerHTML = "Fill out required labels to proceed (marked by asterisks). Labels in italic are optional.";
         copyVisibility('hidden');
     }
 }
@@ -69,3 +69,8 @@ function copyVisibility(text) {
     var copyButton = document.getElementById("copy-output");
     copyButton.style.visibility = text;
 }
+
+window.onload = function() {
+    updateFormable();
+    document.getElementById("copy-output").addEventListener("click", copyOutput);
+};
