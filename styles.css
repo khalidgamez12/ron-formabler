@@ -73,7 +73,7 @@ a:visited {
     width: 50%;
     color: white;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 5vh;
+    font-size: clamp(24px, 4vw, 48px);
 }
 
 #description {
@@ -81,7 +81,7 @@ a:visited {
     margin: auto;
     font-style: italic;
     color: white;
-    font-size: 1.5vh;
+    font-size: 0.8vw;
     font-family: 'Roboto Mono', monospace;
 }
 
@@ -152,6 +152,9 @@ a:visited {
     color: white;
     text-align: center;
     font-size: 16px;
+    float: right;
+    margin-right: 25px;
+    margin-top: 25px;
 }
 
 #copy-output:hover {
