@@ -33,16 +33,14 @@ function updateFormable() {
     exclusivelist = formListString(exclusive, exclusivelist);
 
 
-    if (!isEmpty(name) && !isEmpty(canform) && !isEmpty(required) && !isEmpty(buttonName) && !isEmpty(buttonDesc) && !isEmpty(flagLink)) {
+    if (!isEmpty(name) && !isEmpty(canform) && !isEmpty(required) && !isEmpty(buttonName) && !isEmpty(buttonDesc)) {
 
         copyVisibility('visible');
 
-        if (!isEmpty(alertTitle) || !isEmpty(alertDesc) || !isEmpty(alertButton)) {
-            output.innerHTML = "{<br>FormableName = \"{0}\",<br>CountriesCanForm = {{1}},<br>RequiredCountries = {{2}},<br>ExclusiveFormables = {{3}},<br>FormableButton = {<br>ButtonName = \"{4}\",<br>ButtonDescription = \"{5}\",<br>},<br><br>CustomAlert = {<br>Title = \"{6}\",<br>Desc = \"{7}\",<br>Button = \"{8}\",<br>},<br>},<br><br>Flag link: {9}".format(name.value, canformlist, requiredlist, exclusivelist, buttonName.value, buttonDesc.value, alertTitle.value, alertDesc.value, alertButton.value, flagLink.value);
-        }
-        else output.innerHTML = "{<br>FormableName = \"{0}\",<br>CountriesCanForm = {{1}},<br>RequiredCountries = {{2}},<br>ExclusiveFormables = {{3}},<br>FormableButton = {<br>ButtonName = \"{4}\",<br>ButtonDescription = \"{5}\",<br>},<br>},<br><br>Flag link: {6}".format(name.value, canformlist, requiredlist, exclusivelist, buttonName.value, buttonDesc.value, flagLink.value);
+        output.innerHTML = "{<br>FormableName = \"{0}\",<br>CountriesCanForm = {{1}},<br>RequiredCountries = {{2}},<br>ExclusiveFormables = {{3}},<br><br>FormableButton = {<br>ButtonName = \"{4}\",<br>ButtonDescription = \"{5}\",<br>},<br><br>CustomAlert = {<br>Title = \"{6}\",<br>Desc = \"{7}\",<br>Button = \"{8}\",<br>},<br>},{9}".format(name.value, canformlist, requiredlist, exclusivelist, buttonName.value, buttonDesc.value, isEmpty(alertTitle) ? "" : alertTitle.value, isEmpty(alertDesc) ? "" : alertDesc.value, isEmpty(alertButton) ? "" : alertButton.value, isEmpty(flagLink) ? "" : "<br><br>Flag link: " + flagLink.value);
 
-
+        isAlertVisible = (!isEmpty(alertTitle) || !isEmpty(alertDesc) || !isEmpty(alertButton));
+        if (!isAlertVisible) output.innerHTML = output.innerHTML.replace(output.innerHTML.substring(output.innerHTML.indexOf("<br><br>CustomAlert"), output.innerHTML.indexOf("<br>},<br>},") + 6), "");
 
     } else {
         output.innerHTML = "Fill out required labels to proceed (marked by asterisks). Labels in italic are optional.";
@@ -51,12 +49,8 @@ function updateFormable() {
 }
 
 function formListString(input, newlist) {
-    var list = input.value.split(",");
-    for (nation of list) {
-        if (list[list.length - 1] != nation) newlist = newlist + "\"" + nation + "\", ";
-        else newlist = newlist + "\"" + nation + "\"";
-    }
-    return newlist;
+    for (nation of input.value.split(",")) newlist = "{0}, \"{1}\"".format(newlist, nation.trim());
+    return newlist.replace(", ", "");
 }
 
 function copyOutput() {
@@ -66,8 +60,7 @@ function copyOutput() {
 }
 
 function copyVisibility(text) {
-    var copyButton = document.getElementById("copy-output");
-    copyButton.style.visibility = text;
+    document.getElementById("copy-output").style.visibility = text;
 }
 
 window.onload = function() {
