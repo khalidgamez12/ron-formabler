@@ -37,10 +37,10 @@ function updateFormable() {
 
         copyVisibility('visible');
 
-        output.innerHTML = "{<br>    FormableName = \"{0}\",<br>    CountriesCanForm = {{1}},<br>    RequiredCountries = {{2}},<br>    ExclusiveFormables = {{3}},<br><br>    FormableButton = {<br>        ButtonName = \"{4}\",<br>        ButtonDescription = \"{5}\",<br>    },<br><br>    CustomAlert = {<br>        Title = \"{6}\",<br>        Desc = \"{7}\",<br>        Button = \"{8}\",<br>    },<br>},{9}".format(name.value, canformlist, requiredlist, exclusivelist, buttonName.value, buttonDesc.value, isEmpty(alertTitle) ? "" : alertTitle.value, isEmpty(alertDesc) ? "" : alertDesc.value, isEmpty(alertButton) ? "" : alertButton.value, isEmpty(flagLink) ? "" : "<br><br>Flag link: " + flagLink.value);
+        output.innerHTML = "{<br>&nbsp;&nbsp;&nbsp;&nbsp;FormableName = \"{0}\",<br>&nbsp;&nbsp;&nbsp;&nbsp;CountriesCanForm = {{1}},<br>&nbsp;&nbsp;&nbsp;&nbsp;RequiredCountries = {{2}},<br>&nbsp;&nbsp;&nbsp;&nbsp;ExclusiveFormables = {{3}},<br><br>&nbsp;&nbsp;&nbsp;&nbsp;FormableButton = {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ButtonName = \"{4}\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ButtonDescription = \"{5}\",<br>&nbsp;&nbsp;&nbsp;&nbsp;},<br><br>&nbsp;&nbsp;&nbsp;&nbsp;CustomAlert = {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Title = \"{6}\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Desc = \"{7}\",<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Button = \"{8}\",<br>&nbsp;&nbsp;&nbsp;&nbsp;},<br>},{9}".format(name.value, canformlist, requiredlist, exclusivelist, buttonName.value, buttonDesc.value, isEmpty(alertTitle) ? "" : alertTitle.value, isEmpty(alertDesc) ? "" : alertDesc.value, isEmpty(alertButton) ? "" : alertButton.value, isEmpty(flagLink) ? "" : "<br><br>Flag link: " + flagLink.value);
 
         isAlertVisible = (!isEmpty(alertTitle) || !isEmpty(alertDesc) || !isEmpty(alertButton));
-        if (!isAlertVisible) output.innerHTML = output.innerHTML.replace(output.innerHTML.substring(output.innerHTML.indexOf("<br><br>    CustomAlert"), output.innerHTML.indexOf("<br>    },<br>},") + 6), "");
+        if (!isAlertVisible) output.innerHTML = output.innerHTML.replace(output.innerHTML.substring(output.innerHTML.indexOf("<br><br>&nbsp;&nbsp;&nbsp;&nbsp;CustomAlert"), output.innerHTML.indexOf("<br>&nbsp;&nbsp;&nbsp;&nbsp;},<br>},") + 6), "");
 
     } else {
         output.innerHTML = "Fill out required labels to proceed (marked by asterisks). Labels in italic are optional.";
