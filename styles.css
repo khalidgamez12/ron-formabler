@@ -80,15 +80,6 @@ span {
 	font-size: clamp(24px, 4vw, 48px);
 }
 
-#description {
-	text-align: center;
-	margin: auto;
-	font-style: italic;
-	color: white;
-	font-size: 0.8vw;
-	font-family: 'Roboto Mono', monospace;
-}
-
 /* INPUT */
 
 #input-content {
